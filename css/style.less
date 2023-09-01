@@ -96,7 +96,18 @@ h2 {
   color: @gray-lighter;
 }
 
-.spacer {
+a {
+  color: white;
+  .transition;
+  &:hover {
+    color: @green;
+  }
+  &.text-decoration-none {
+    text-decoration: none;
+  }
+}
+
+/*.spacer {
   &.h {
     &-10 {
       height: 1rem;
@@ -108,7 +119,7 @@ h2 {
       height: 2rem;
     }
   }
-}
+}*/
 
 .uppercase {
   text-transform: uppercase;
@@ -121,11 +132,9 @@ html {
 body {
   color: @base;
   background: @body-bg;
-  padding-left: 25px;
   max-width: 1900px;
   width: 75vw;
   margin: 0 auto;
-  height: 100vh;
   &.fancy-bg-active {
     background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);
 
@@ -174,129 +183,154 @@ body {
   background-repeat: no-repeat;
 }
 
-.container {
-  &.wrapper {
-    padding: 0 1.2rem;
-  }
-  .header_container {
+.body_wrapper {
+  position: relative;
+  min-height: 100vh;
 
+  #page {
+    //padding-bottom: 2.5rem;
+    padding-bottom: 100px;
   }
-  .settings_container {
-    padding: 50px 75px;
-    border: 1px solid @green;
-    .settings {
-      display: flex;
-      align-items: center;
-      height: 50px;
-      position: relative;
-      label, input {
-        font-size: 1.2rem;
-      }
-      label {
-        &:not([for=special_chars]) {
-          margin-left: 15px;
-        }
-      }
-      input{
-        color: @darker;
-        &[name="prefix"] {
-          color: @green_darker;
-          width: 50px;
-          text-align: center;
-        }
-        &[type="number"] {
-          color: @green_darker;
-          width: 70px;
-          text-align: center;
-        }
-      }
+
+  .container {
+    &.page-wrapper {
+      padding: 0 1.2rem;
     }
-  }
-  .generate_container {
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    button {
-      .font-oswald(1.5rem, 300);
-      min-width: 300px;
-      &.glow-on-hover {
-        width: auto;
-        padding: 15px 50px;
-        //border: none;
-        border: 2px solid @green;
-        outline: none;
-        color: #fff;
-        background: #111;
-        cursor: pointer;
+    .header_container {
+
+    }
+    .settings_container {
+      padding: 50px 75px;
+      border: 1px solid @green;
+      .settings {
+        display: flex;
+        align-items: center;
+        height: 50px;
         position: relative;
-        z-index: 0;
-        border-radius: 10px;
-        &:before {
-          content: '';
-          background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-          position: absolute;
-          top: -2px;
-          left:-2px;
-          background-size: 400%;
-          z-index: -1;
-          filter: blur(5px);
-          width: calc(100% + 4px);
-          height: calc(100% + 4px);
-          animation: glowing 20s linear infinite;
-          opacity: 0;
-          transition: opacity .3s ease-in-out;
-          border-radius: 10px;
+        label, input {
+          font-size: 1.2rem;
         }
-        &:after {
-          z-index: -1;
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: #111;
-          left: 0;
-          top: 0;
-          border-radius: 10px;
-        }
-        &:hover {
-          &:before {
-            opacity: 1;
+        label {
+          &:not([for=special_chars]) {
+            margin-left: 15px;
           }
         }
-
-        &:active {
-          color: #000;
-          &:after {
-            background: transparent;
+        input{
+          color: @darker;
+          &[name="prefix"] {
+            color: @green_darker;
+            width: 50px;
+            text-align: center;
+          }
+          &[type="number"] {
+            color: @green_darker;
+            width: 70px;
+            text-align: center;
           }
         }
       }
     }
+    .generate_container {
+      width: 50%;
+      margin: 0 auto;
+      text-align: center;
+      button {
+        .font-oswald(1.5rem, 300);
+        min-width: 300px;
+        &.glow-on-hover {
+          width: auto;
+          padding: 15px 50px;
+          //border: none;
+          border: 2px solid @green;
+          outline: none;
+          color: #fff;
+          background: #111;
+          cursor: pointer;
+          position: relative;
+          z-index: 0;
+          border-radius: 10px;
+          &:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left:-2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+          }
+          &:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+          }
+          &:hover {
+            &:before {
+              opacity: 1;
+            }
+          }
 
-    @keyframes glowing {
-      0% { background-position: 0 0; }
-      50% { background-position: 400% 0; }
-      100% { background-position: 0 0; }
+          &:active {
+            color: #000;
+            &:after {
+              background: transparent;
+            }
+          }
+        }
+      }
+
+      @keyframes glowing {
+        0% { background-position: 0 0; }
+        50% { background-position: 400% 0; }
+        100% { background-position: 0 0; }
+      }
+    }
+    .password_container {
+      width: 50%;
+      margin: 0 auto;
+      text-align: center;
+      input {
+        .font-oswald(1.5rem, 300);
+        padding: 5px 25px;
+      }
+    }
+    .copy_container {
+      width: 50%;
+      margin: 0 auto;
+      text-align: center;
+      #button_copy {
+        display: none;
+      }
     }
   }
-  .password_container {
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    input {
-      .font-oswald(1.5rem, 300);
-      padding: 5px 25px;
+
+  #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    //height: 2.5rem;
+    height: 100px;
+    .footer_container {
+      font-size: 0.8rem;
+      padding: 0 1.2rem;
     }
   }
-  .copy_container {
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    #button_copy {
-      display: none;
-    }
-  }
+
 }
+
+
 
 
 
