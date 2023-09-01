@@ -12,9 +12,8 @@
 
 ## Introduction
 
+A modernized version of the password generator based of the code from 2015.
 Generate passwords to suite your needs with some extra options.
-
-The code of the password generator is originally based on a project from 2015.
 
 **Now with some new styling and refactorings.**
 
