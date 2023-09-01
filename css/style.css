@@ -1,0 +1,564 @@
+.flex {
+  display: flex;
+}
+.flex.between {
+  justify-content: space-between;
+}
+.flex.around {
+  justify-content: space-around;
+}
+.grid {
+  display: grid;
+}
+.grid.gap25 {
+  grid-gap: 25px;
+}
+.grid-item.center {
+  justify-self: center;
+}
+.github-fork-ribbon {
+  width: 12.1em;
+  height: 12.1em;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  pointer-events: none;
+  font-size: 13px;
+  text-decoration: none;
+  text-indent: -999999px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.github-fork-ribbon.fixed {
+  position: fixed;
+}
+.github-fork-ribbon:hover,
+.github-fork-ribbon:active {
+  background-color: rgba(0, 0, 0, 0);
+}
+.github-fork-ribbon:hover:before,
+.github-fork-ribbon:active:before {
+  background-image: unset;
+}
+.github-fork-ribbon:before,
+.github-fork-ribbon:after {
+  /* The right and left classes determine the side we attach our banner to */
+  position: absolute;
+  display: block;
+  width: 15.38em;
+  height: 1.54em;
+  top: 3.23em;
+  right: -3.23em;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.github-fork-ribbon:before {
+  content: "";
+  /* Add a bit of padding to give some substance outside the "stitching" */
+  padding: 0.38em 0;
+  /* Set the base colour */
+  background-color: #c4d600;
+  /* Set a gradient: transparent black at the top to almost-transparent black at the bottom */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.15)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  /* Add a drop shadow */
+  /*-webkit-box-shadow: 0 .15em .23em 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 .15em .23em 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 .15em .23em 0 rgba(0, 0, 0, 0.5);*/
+  -webkit-box-shadow: 0 0.05em 0.23em 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0.05em 0.23em 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.05em 0.23em 0 rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+.github-fork-ribbon:after {
+  /* Set the text from the data-ribbon attribute */
+  content: attr(data-ribbon);
+  /* Set the text properties */
+  color: #fff;
+  font: 700 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.54em;
+  text-decoration: none;
+  text-align: center;
+  text-indent: 0;
+  /* Set the layout properties */
+  padding: 0.15em 0;
+  margin: 0.15em 0;
+  /* Add "stitching" effect */
+  border-width: 0.08em 0;
+  border-style: dotted;
+  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.github-fork-ribbon.left-top,
+.github-fork-ribbon.left-bottom {
+  right: auto;
+  left: 0;
+}
+.github-fork-ribbon.left-bottom,
+.github-fork-ribbon.right-bottom {
+  top: auto;
+  bottom: 0;
+}
+.github-fork-ribbon.left-top:before,
+.github-fork-ribbon.left-top:after,
+.github-fork-ribbon.left-bottom:before,
+.github-fork-ribbon.left-bottom:after {
+  right: auto;
+  left: -3.23em;
+}
+.github-fork-ribbon.left-bottom:before,
+.github-fork-ribbon.left-bottom:after,
+.github-fork-ribbon.right-bottom:before,
+.github-fork-ribbon.right-bottom:after {
+  top: auto;
+  bottom: 3.23em;
+}
+.github-fork-ribbon.left-top:before,
+.github-fork-ribbon.left-top:after,
+.github-fork-ribbon.right-bottom:before,
+.github-fork-ribbon.right-bottom:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+span.fa,
+span.fas,
+span.far,
+span.fal,
+span.fad,
+span.fab,
+span.fa-brands {
+  color: #c4d600;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+span.fa.white,
+span.fas.white,
+span.far.white,
+span.fal.white,
+span.fad.white,
+span.fab.white,
+span.fa-brands.white {
+  color: #FFFFFF;
+}
+span.fa.white:hover,
+span.fas.white:hover,
+span.far.white:hover,
+span.fal.white:hover,
+span.fad.white:hover,
+span.fab.white:hover,
+span.fa-brands.white:hover {
+  cursor: pointer;
+  color: #c4d600;
+}
+h1 {
+  font-size: 2em;
+  color: #FFFFFF;
+}
+h2 {
+  font-size: 2em;
+  color: #EBEBEB;
+}
+.spacer.h-10 {
+  height: 1rem;
+}
+.spacer.h-20 {
+  height: 1.5rem;
+}
+.spacer.h-30 {
+  height: 2rem;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+html {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16pt;
+  font-weight: 300;
+  line-height: 1.42857143;
+}
+body {
+  color: #FFFFFF;
+  background: #2B3E50;
+  padding-left: 25px;
+  max-width: 1900px;
+  width: 75vw;
+  margin: 0 auto;
+  height: 100vh;
+}
+body.fancy-bg-active {
+  background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);
+}
+body.fancy-bg-active .header_container .activate-fancy-bg.button {
+  position: relative;
+}
+body.fancy-bg-active .header_container .activate-fancy-bg.button::before {
+  transition: all 0.3s ease-in-out 0s;
+}
+body.fancy-bg-active .header_container .activate-fancy-bg.button::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 5px solid #c4d600;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 2.5s infinite;
+}
+@keyframes ring {
+  0% {
+    width: 40px;
+    height: 40px;
+    opacity: 0.75;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}
+#logo {
+  background-repeat: no-repeat;
+}
+.container.wrapper {
+  padding: 0 1.2rem;
+}
+.container .settings_container {
+  padding: 50px 75px;
+  border: 1px solid #c4d600;
+}
+.container .settings_container .settings {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  position: relative;
+}
+.container .settings_container .settings label,
+.container .settings_container .settings input {
+  font-size: 1.2rem;
+}
+.container .settings_container .settings label:not([for=special_chars]) {
+  margin-left: 15px;
+}
+.container .settings_container .settings input {
+  color: #222;
+}
+.container .settings_container .settings input[name="prefix"] {
+  color: #9fae01;
+  width: 50px;
+  text-align: center;
+}
+.container .settings_container .settings input[type="number"] {
+  color: #9fae01;
+  width: 70px;
+  text-align: center;
+}
+.container .generate_container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+.container .generate_container button {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.42857143;
+  min-width: 300px;
+}
+.container .generate_container button.glow-on-hover {
+  width: auto;
+  padding: 15px 50px;
+  border: 2px solid #c4d600;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+.container .generate_container button.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+.container .generate_container button.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.container .generate_container button.glow-on-hover:hover:before {
+  opacity: 1;
+}
+.container .generate_container button.glow-on-hover:active {
+  color: #000;
+}
+.container .generate_container button.glow-on-hover:active:after {
+  background: transparent;
+}
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.container .password_container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+.container .password_container input {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.42857143;
+  padding: 5px 25px;
+}
+.container .copy_container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+.container .copy_container #button_copy {
+  display: none;
+}
+input {
+  /*
+ * Checkbox => FontAwesome Style
+ */
+}
+input#field_password {
+  display: none;
+  text-align: center;
+  background-color: #c4d600;
+}
+input[type=checkbox] {
+  /* to hide the checkbox itself */
+  display: none;
+  /* to position the fake checkbox */
+  /* unchecked icon */
+  /* checked icon */
+}
+input[type=checkbox] + label:before {
+  display: inline-block;
+  font-family: FontAwesome;
+}
+input[type=checkbox] + label:before {
+  content: "\f096";
+  width: 40px;
+}
+input[type=checkbox]:checked + label {
+  color: #c4d600;
+}
+input[type=checkbox]:checked + label:before {
+  content: "\f046";
+}
+.cybr-btn {
+  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 1%));
+  --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
+  --primary-hue: 65;
+  --primary-lightness: 50;
+  --color: hsl(0, 0%, 100%);
+  --font-size: 26px;
+  --shadow-primary-hue: 200;
+  --label-size: 9px;
+  --shadow-secondary-hue: 60;
+  --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+  --clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
+  --border: 4px;
+  --shimmy-distance: 5;
+  --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+  --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+  --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+  --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+  --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+  font-family: 'Cyber', sans-serif;
+  color: #222;
+  cursor: pointer;
+  background: transparent;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  outline: transparent;
+  letter-spacing: 2px;
+  position: relative;
+  font-weight: 700;
+  border: 0;
+  min-width: 300px;
+  height: 75px;
+  line-height: 75px;
+  transition: background 0.2s;
+}
+.cybr-btn:hover {
+  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.8%));
+  color: var(--color);
+}
+.cybr-btn:active {
+  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.6%));
+}
+.cybr-btn:after,
+.cybr-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  clip-path: var(--clip);
+  z-index: -1;
+}
+.cybr-btn:before {
+  background: var(--shadow-primary);
+  transform: translate(var(--border), 0);
+}
+.cybr-btn:after {
+  background: var(--primary);
+}
+.cybr-btn__tag {
+  position: absolute;
+  padding: 1px 4px;
+  letter-spacing: 1px;
+  line-height: 1;
+  bottom: -5%;
+  right: 5%;
+  font-weight: normal;
+  color: white;
+  font-size: var(--label-size);
+}
+.cybr-btn__glitch {
+  position: absolute;
+  top: calc(var(--border) * -1);
+  left: calc(var(--border) * -1);
+  right: calc(var(--border) * -1);
+  bottom: calc(var(--border) * -1);
+  background: var(--shadow-primary);
+  text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
+  clip-path: var(--clip);
+  animation: glitch 2s infinite;
+  display: none;
+}
+.cybr-btn:hover .cybr-btn__glitch {
+  display: block;
+}
+.cybr-btn__glitch:before {
+  content: '';
+  position: absolute;
+  top: calc(var(--border) * 1);
+  right: calc(var(--border) * 1);
+  bottom: calc(var(--border) * 1);
+  left: calc(var(--border) * 1);
+  clip-path: var(--clip);
+  background: var(--primary);
+  z-index: -1;
+}
+@keyframes glitch {
+  0% {
+    clip-path: var(--clip-one);
+  }
+  2%,
+  8% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  6% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  9% {
+    clip-path: var(--clip-two);
+    transform: translate(0, 0);
+  }
+  10% {
+    clip-path: var(--clip-three);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  13% {
+    clip-path: var(--clip-three);
+    transform: translate(0, 0);
+  }
+  14%,
+  21% {
+    clip-path: var(--clip-four);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  25% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  30% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  35%,
+  45% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * -1%));
+  }
+  40% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * 1%));
+  }
+  50% {
+    clip-path: var(--clip-six);
+    transform: translate(0, 0);
+  }
+  55% {
+    clip-path: var(--clip-seven);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  60% {
+    clip-path: var(--clip-seven);
+    transform: translate(0, 0);
+  }
+  31%,
+  61%,
+  100% {
+    clip-path: var(--clip-four);
+  }
+}
+/*# sourceMappingURL=style.css.map */

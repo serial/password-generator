@@ -1,0 +1,518 @@
+//
+//
+//       _/_/    _/        _/_/_/    _/_/    _/_/_/_/_/
+//    _/    _/  _/          _/    _/    _/        _/
+//   _/_/_/_/  _/          _/    _/_/_/_/      _/
+// _/    _/  _/          _/    _/    _/    _/
+// _/    _/  _/_/_/_/  _/_/_/  _/    _/  _/_/_/_/_/
+//                      aliaz werbeagentur | gmbh
+//
+
+@import "helpers";
+@import "github-forkme-ribbon";
+
+@base:                  #FFFFFF;
+@darker:                #222;
+@dark:                  #333;
+@gray:                  #555;
+@gray-light:            #4E5D6C;
+@gray-lighter:          #EBEBEB;
+
+@primary:               #DF691A;
+@success:               #5cb85c;
+@info:                  #5bc0de;
+@warning:               #f0ad4e;
+@danger:                #d9534f;
+@red:                   #FF0000;
+@green:                 #c4d600;
+@green_darker:          #9fae01;
+
+@body-bg:               #2B3E50;
+
+@link-color:            @primary;
+@link-hover-color:      @link-color;
+@link-hover-decoration: underline;
+
+
+//== Typography
+
+
+@font-family-sans-serif:  "Lato", "Helvetica Neue", "Oswald", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+@font-size-base:          1em;
+@font-size-large:         ceil((@font-size-base * 1.25));   // ~18px
+@font-size-small:         ceil((@font-size-base * 0.85));   // ~12px
+
+@font-size-h1:            floor((@font-size-base * 2.6));   // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15));  // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7));    // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.25));   // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.85));   // ~12px
+
+//** Unit-less `line-height` for use in components like buttons.
+@line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
+
+
+.font-oswald(@size: 16pt, @weight: 300) {
+  font-family: 'Oswald', sans-serif;
+  font-size: @size;
+  font-weight: @weight;
+  line-height: @line-height-base;
+}
+.font-tech(@size: 16pt, @weight: 300) {
+  font-family: 'Share Tech', sans-serif;
+  font-size: @size;
+  font-weight: @weight;
+  line-height: @line-height-base;
+}
+
+span {
+  &.fa, &.fas, &.far, &.fal, &.fad, &.fab, &.fa-brands {
+    color: @green;
+    .transition;
+    &.white {
+      color: @base;
+      &:hover {
+        cursor: pointer;
+        color: @green;
+      }
+    }
+  }
+}
+
+h1 {
+  font-size: @font-size-h1;
+  color: @base;
+}
+
+h2 {
+  font-size: @font-size-h3;
+  color: @gray-lighter;
+}
+
+.spacer {
+  &.h {
+    &-10 {
+      height: 1rem;
+    }
+    &-20 {
+      height: 1.5rem;
+    }
+    &-30 {
+      height: 2rem;
+    }
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+html {
+  .font-oswald();
+}
+
+body {
+  color: @base;
+  background: @body-bg;
+  padding-left: 25px;
+  max-width: 1900px;
+  width: 75vw;
+  margin: 0 auto;
+  height: 100vh;
+  &.fancy-bg-active {
+    background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);
+
+    .header_container {
+      .activate-fancy-bg {
+        &.button {
+          position: relative;
+        }
+
+        &.button::before {
+          transition: all .3s ease-in-out 0s;
+        }
+
+        &.button::after {
+          content: '';
+          width: 40px;
+          height: 40px;
+          border-radius: 100%;
+          border: 5px solid @green;
+          position: absolute;
+          z-index: -1;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          animation: ring 2.5s infinite;
+        }
+
+        @keyframes ring {
+          0% {
+            width: 40px;
+            height: 40px;
+            opacity: 0.75;
+          }
+          100% {
+            width: 100px;
+            height: 100px;
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+#logo {
+  background-repeat: no-repeat;
+}
+
+.container {
+  &.wrapper {
+    padding: 0 1.2rem;
+  }
+  .header_container {
+
+  }
+  .settings_container {
+    padding: 50px 75px;
+    border: 1px solid @green;
+    .settings {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      position: relative;
+      label, input {
+        font-size: 1.2rem;
+      }
+      label {
+        &:not([for=special_chars]) {
+          margin-left: 15px;
+        }
+      }
+      input{
+        color: @darker;
+        &[name="prefix"] {
+          color: @green_darker;
+          width: 50px;
+          text-align: center;
+        }
+        &[type="number"] {
+          color: @green_darker;
+          width: 70px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .generate_container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    button {
+      .font-oswald(1.5rem, 300);
+      min-width: 300px;
+      &.glow-on-hover {
+        width: auto;
+        padding: 15px 50px;
+        //border: none;
+        border: 2px solid @green;
+        outline: none;
+        color: #fff;
+        background: #111;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+        &:before {
+          content: '';
+          background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+          position: absolute;
+          top: -2px;
+          left:-2px;
+          background-size: 400%;
+          z-index: -1;
+          filter: blur(5px);
+          width: calc(100% + 4px);
+          height: calc(100% + 4px);
+          animation: glowing 20s linear infinite;
+          opacity: 0;
+          transition: opacity .3s ease-in-out;
+          border-radius: 10px;
+        }
+        &:after {
+          z-index: -1;
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: #111;
+          left: 0;
+          top: 0;
+          border-radius: 10px;
+        }
+        &:hover {
+          &:before {
+            opacity: 1;
+          }
+        }
+
+        &:active {
+          color: #000;
+          &:after {
+            background: transparent;
+          }
+        }
+      }
+    }
+
+    @keyframes glowing {
+      0% { background-position: 0 0; }
+      50% { background-position: 400% 0; }
+      100% { background-position: 0 0; }
+    }
+  }
+  .password_container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    input {
+      .font-oswald(1.5rem, 300);
+      padding: 5px 25px;
+    }
+  }
+  .copy_container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    #button_copy {
+      display: none;
+    }
+  }
+}
+
+
+
+
+input {
+  &#field_password {
+    display: none;
+    text-align: center;
+    background-color: @green;
+  }
+
+  /*
+ * Checkbox => FontAwesome Style
+ */
+  &[type=checkbox] {
+    /* to hide the checkbox itself */
+    display:none;
+
+    /* to position the fake checkbox */
+    &+ label:before {
+      display: inline-block;
+      font-family: FontAwesome;
+    }
+
+    /* unchecked icon */
+    &+ label:before {
+      content: "\f096";
+      width: 40px;
+    }
+
+    /* checked icon */
+    &:checked {
+      &+ label {
+        color: @green;
+      }
+      &+ label:before {
+        content: "\f046";
+      }
+    }
+  }
+}
+
+
+.cybr-btn {
+  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 1%));
+  --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
+  //--primary-hue: 0;
+  --primary-hue: 65;
+  --primary-lightness: 50;
+  --color: hsl(0, 0%, 100%);
+  --font-size: 26px;
+  //--shadow-primary-hue: 20;
+  //--shadow-primary-hue: 320;
+  --shadow-primary-hue: 200;
+  --label-size: 9px;
+  --shadow-secondary-hue: 60;
+  //--shadow-secondary-hue: hsl(0, 0%, 0%);
+  --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+  //--shadow-secondary: var(--shadow-secondary-hue);
+  --clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
+  --border: 4px;
+  --shimmy-distance: 5;
+  --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+  --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+  --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+  --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+  --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+  font-family: 'Cyber', sans-serif;
+  //color: var(--color);
+  color: @darker;
+  cursor: pointer;
+  background: transparent;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  outline: transparent;
+  letter-spacing: 2px;
+  position: relative;
+  font-weight: 700;
+  border: 0;
+  min-width: 300px;
+  height: 75px;
+  line-height: 75px;
+  transition: background 0.2s;
+}
+
+.cybr-btn:hover {
+  //--primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.8%));
+  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.8%));
+  color: var(--color);
+}
+.cybr-btn:active {
+  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.6%));
+}
+
+.cybr-btn:after,
+.cybr-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  clip-path: var(--clip);
+  z-index: -1;
+}
+
+.cybr-btn:before {
+  background: var(--shadow-primary);
+  transform: translate(var(--border), 0);
+}
+
+.cybr-btn:after {
+  background: var(--primary);
+}
+
+.cybr-btn__tag {
+  position: absolute;
+  padding: 1px 4px;
+  letter-spacing: 1px;
+  line-height: 1;
+  bottom: -5%;
+  right: 5%;
+  font-weight: normal;
+  //color: hsl(0, 0%, 0%);
+  color: white;
+  font-size: var(--label-size);
+}
+
+.cybr-btn__glitch {
+  position: absolute;
+  top: calc(var(--border) * -1);
+  left: calc(var(--border) * -1);
+  right: calc(var(--border) * -1);
+  bottom: calc(var(--border) * -1);
+  background: var(--shadow-primary);
+  text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
+  clip-path: var(--clip);
+  animation: glitch 2s infinite;
+  display: none;
+}
+
+.cybr-btn:hover .cybr-btn__glitch {
+  display: block;
+}
+
+.cybr-btn__glitch:before {
+  content: '';
+  position: absolute;
+  top: calc(var(--border) * 1);
+  right: calc(var(--border) * 1);
+  bottom: calc(var(--border) * 1);
+  left: calc(var(--border) * 1);
+  clip-path: var(--clip);
+  background: var(--primary);
+  z-index: -1;
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--clip-one);
+  }
+  2%, 8% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  6% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  9% {
+    clip-path: var(--clip-two);
+    transform: translate(0, 0);
+  }
+  10% {
+    clip-path: var(--clip-three);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  13% {
+    clip-path: var(--clip-three);
+    transform: translate(0, 0);
+  }
+  14%, 21% {
+    clip-path: var(--clip-four);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  25% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  30% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  35%, 45% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * -1%));
+  }
+  40% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * 1%));
+  }
+  50% {
+    clip-path: var(--clip-six);
+    transform: translate(0, 0);
+  }
+  55% {
+    clip-path: var(--clip-seven);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  60% {
+    clip-path: var(--clip-seven);
+    transform: translate(0, 0);
+  }
+  31%, 61%, 100% {
+    clip-path: var(--clip-four);
+  }
+}
