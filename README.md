@@ -1,10 +1,6 @@
 <h1 align="center"> Password Generator </h1> <br>
 
 <p align="center">
-  ![image](https://github.com/serial/password-generator/blob/master/password-generator-preview.png?raw=true)
-</p>
-
-<p align="center">
   PHP and HTML version available
 </p>
 
