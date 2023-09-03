@@ -1,7 +1,7 @@
 <h1 align="center"> Password Generator </h1> <br>
 
 <p align="center">
-  ![image](https://github.com/serial/password-generator/blob/master/password-generator-preview.png)
+  ![image](password-generator-preview.png)
 </p>
 
 <p align="center">
