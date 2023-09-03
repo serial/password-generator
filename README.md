@@ -1,6 +1,10 @@
 <h1 align="center"> Password Generator </h1> <br>
 
 <p align="center">
+  ![image](https://github.com/serial/password-generator/blob/master/password-generator-preview.png?raw=true)
+</p>
+
+<p align="center">
   PHP and HTML version available
 </p>
 
@@ -15,7 +19,8 @@
 A modernized version of the password generator based of the code from 2015.
 Generate passwords to suite your needs with some extra options.
 
-**Now with some new styling and refactorings.**
+**Now with some new styling and including a mini layout framework written in less-css. Which is a good starter for small projects based on tailwind classes.**
+
 
 ## Features
 
