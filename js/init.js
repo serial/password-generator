@@ -3,6 +3,14 @@
 jQuery(function ($) {
   "use strict";
 
+  let domain = window.location.hostname;
+  console.log("%cJS Initialization", "color:#ffffff; font-weight:bold; font-size: 1.4em");
+  console.log("%cinit.js", "color:#00ff00", "-> Loaded on " + domain);
+
+  let currentYear = (new Date).getFullYear();
+  $('#copyright.current-year').text(currentYear);
+
+
   let
     i,
     value,
@@ -49,7 +57,6 @@ jQuery(function ($) {
       console.log('none => checked');
     }
 
-
     limit = limit - prefix.length;
 
     for (i = 0; i < limit; i++) {
@@ -68,14 +75,15 @@ jQuery(function ($) {
     if (value >= min && value <= max) {
       $('#alert').hide();
       width = value * 10;
-      prefix = $("#prefixchars").val();
+      prefix = $("#prefix_chars").val();
 
       let action = this.id;
       let password = randString(value, prefix);
       let passwordField = $('.hidden_password');
 
       passwordField.val(password);
-      //$('#field_password').css('width', width).show();
+      console.log("Generate -> " + value + " characters => " + "%c" + password, "color:#f0ad4e");
+
       $('#field_password').show();
       $('#button_copy').show();
 
@@ -94,6 +102,7 @@ jQuery(function ($) {
   $('.button.activate-fancy-bg').click(function () {
     let target = $('body');
     target.toggleClass('fancy-bg-active');
+    $(this).toggleClass('active');
   });
 
   $('#button_copy').click(function () {

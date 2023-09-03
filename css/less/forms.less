@@ -1,0 +1,50 @@
+@import (reference) "config";
+
+label, input {
+  font-size: 1.2rem;
+}
+label {
+  margin: 0;
+}
+
+input {
+  color: @darker;
+  &[name="prefix"] {
+    color: @electric-green-darker;
+    text-align: center;
+  }
+  &[type="number"] {
+    color: @electric-green-darker;
+    text-align: center;
+  }
+
+  /*
+   * Checkbox => FontAwesome Style
+   */
+  &[type=checkbox] {
+    /* to hide the checkbox itself */
+    display:none;
+
+    /* to position the fake checkbox */
+    &+ label:before {
+      display: inline-block;
+      font-family: FontAwesome;
+    }
+
+    /* unchecked icon */
+    &+ label:before {
+      content: "\f096";
+      width: 40px;
+    }
+
+    /* checked icon */
+    &:checked {
+      &+ label {
+        color: @electric-green;
+      }
+      &+ label:before {
+        content: "\f046";
+      }
+    }
+  }
+}

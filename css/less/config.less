@@ -1,0 +1,85 @@
+@import (reference) "functions";
+@import (reference) "media-queries";
+@import (reference) "color-scheme";
+
+@theme-directory-name: 'THEME_DIRECTORY_NAME';
+
+@light:                 #4E5D6C;
+@lighter:               #EBEBEB;
+@lightest:              #F5F5F5;
+@white:                 #FFFFFF;
+
+@dark:                  #333;
+@darker:                #222;
+@darkest:               #111;
+@black:                 #000;
+
+@gray:                  #555;
+@gray-light:            #777;
+
+@success:               #5cb85c;
+@info:                  #5bc0de;
+@warning:               #f0ad4e;
+@danger:                #d9534f;
+
+@red:                   #ff0000;
+@green:                 #33ff33;
+@blue:                  #0000FF;
+@purple:                #800080;
+@yellow:                #FFFF00;
+@orange:                #FFA500;
+
+@color_fb:               rgb(59, 89, 152);
+@color_twitter:          rgb(85, 172, 238);
+@color_instagram:        rgb(63, 114, 155);
+@color_xing:             rgb(19, 83, 83);
+
+//== Custom Colors
+@electric-green:        #c4d600;
+@electric-green-darker: #9fae01;
+@body-bg:               #2B3E50;
+@body-bg-light:         #606e7b;
+
+//== Typography
+@font-family-sans-serif:  "Lato", "Helvetica Neue", "Oswald", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+@font-size-base:          1em;
+@font-size-small:         ceil((@font-size-base * 0.85));   // ~12px
+@font-size-large:         ceil((@font-size-base * 1.25));   // ~18px
+
+@font-size-h1:            floor((@font-size-base * 2.6));   // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15));  // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7));    // ~24px
+@font-size-h4:            @font-size-large;
+@font-size-h5:            @font-size-base;
+@font-size-h6:            @font-size-small;
+
+@line-height-base:        120%;
+
+
+.font-oswald(@size: 16pt, @weight: 300, @height: @line-height-base) {
+  font-family: 'Oswald', sans-serif;
+  font-size:   @size;
+  font-weight: @weight;
+  line-height: @height;
+}
+.font-tech(@size: 16pt, @weight: 300, @height: @line-height-base) {
+  font-family: 'Share Tech', sans-serif;
+  font-size:   @size;
+  font-weight: @weight;
+  line-height: @height;
+}
+
+.bbg(@alpha:0.7) {
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0,@alpha);
+}
+
+.wbg(@alpha:0.6) {
+  background: rgb(255,255,255);
+  background: rgba(255,255,255,@alpha);
+}
+
