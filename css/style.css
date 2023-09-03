@@ -248,7 +248,7 @@ span.button {
 }
 @media only screen and (max-width: 480px) {
   .body_wrapper .container.logo {
-    margin-top: 50px;
+    padding-top: 50px;
   }
 }
 .body_wrapper .container.page-wrapper {
