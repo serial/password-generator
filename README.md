@@ -30,4 +30,5 @@ A few of the things:
 * Copy the password to your clipboard with your shortcut or with one click
 * All fonts are loaded from local files
 * Font-Awesome-Pro 6.4.2 included
+* Tooltip support on multiple elements with the popper.js lib
 * HTML version included without the needs of a server
