@@ -10,7 +10,8 @@
   <link rel="stylesheet" type="text/css" href="css/style.min.css">
 
   <!-- SCRIPTS -->
-  <script type="text/javascript" src="js/libs/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/libs/jquery-3.6.4.min.js"></script>
+  <script type="text/javascript" src="js/libs/popper-2.11.8.min.js"></script>
 
   <!-- FONTS -->
   <link rel="stylesheet" type='text/css' href="assets/fonts/fontawesome-pro-6.4.2-web/css/all.min.css">
@@ -39,20 +40,29 @@
     <div class="container page-wrapper">
 
       <div class="header_container flex-between">
-        <h1 class="title uppercase"><span class="fa-brands fa-dashcube green"></span> Password Generator</h1>
+        <h1 class="title uppercase"><span class="fa-brands fa-dashcube electric-green"></span> Password Generator</h1>
         <h1 class="bolt"><span class="fa fa-bolt link-light button activate-fancy-bg" aria-hidden="true"></span></h1>
       </div>
-
 
       <div class="settings_container flex-between">
         <div class="settings special-chars">
           <input type="checkbox" name="special-chars" id="special_chars" value="yes"/>
           <label for="special_chars">Special Chars</label>
         </div>
-        <div class="settings safe-chars">
+
+        <div class="settings safe-chars tooltip">
           <input type="checkbox" name="safe-chars" id="safe_chars" value="yes"/>
           <label for="safe_chars">Safe Chars</label>
+
+          <div class="tooltip-element pl-2" aria-describedby="tooltip">
+            <span class="fa-light fa-circle-question electric-green"></span>
+          </div>
+          <div class="tooltip-text" role="tooltip">
+            Prevent similar looking characters.
+            <div id="arrow" data-popper-arrow></div>
+          </div>
         </div>
+
         <div class="settings prefix gap-x-4">
           <input type="text" name="prefix" id="prefix_chars" value="aZ" maxlength="3"/>
           <label for="prefix_chars">Prefix Chars</label>
@@ -108,6 +118,8 @@
 </div>
 
 <script type="text/javascript" src="js/init.min.js"></script>
+<script type="text/javascript" src="js/tooltip.js"></script>
 
 </body>
 </html>
+

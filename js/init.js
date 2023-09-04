@@ -4,12 +4,19 @@ jQuery(function ($) {
   "use strict";
 
   let domain = window.location.hostname;
-  console.log("%cJS Initialization", "color:#ffffff; font-weight:bold; font-size: 1.4em");
-  console.log("%cinit.js", "color:#00ff00", "-> Loaded on " + domain);
+  console.log("%cJS Initialization", "color:#ffffff; font-weight:bold; font-size: 1.4em", " " + domain);
+  console.log("%cinit.js", "color:#00ff00", "-> Loaded");
 
+  /* Fancy background toggle */
+  $('.button.activate-fancy-bg').click(function () {
+    let target = $('body');
+    target.toggleClass('fancy-bg-active');
+    $(this).toggleClass('active');
+  });
+
+  /* Footer */
   let currentYear = (new Date).getFullYear();
   $('#copyright.current-year').text(currentYear);
-
 
   let
     i,
@@ -19,6 +26,39 @@ jQuery(function ($) {
     min,
     width,
     prefix;
+
+  $('.submit').click(function () {
+    input_length = $("#length");
+
+    max = parseInt(input_length.attr('max'), 10);
+    min = parseInt(input_length.attr('min'), 10);
+    value = parseInt(input_length.val(), 10);
+    if (value >= min && value <= max) {
+      $('#alert').hide();
+      width = value * 10;
+      prefix = $("#prefix_chars").val();
+
+      let action = this.id;
+      let password = randString(value, prefix);
+      let passwordField = $('.hidden_password');
+
+      passwordField.val(password);
+      console.log("Generate -> " + value + " characters => " + "%c" + password, "color:#f0ad4e");
+
+      $('#field_password').show();
+      $('#button_copy').show();
+
+      passwordField.select();
+    } else {
+      $('#field_password').hide();
+      $('#button_copy').hide();
+      if (value >= max) {
+        $('#alert').addClass('alert').text('Character limit exceeded (' + value + ')').show();
+      } else {
+        $('#alert').addClass('alert').text('Character limit too low (' + value + ')').show();
+      }
+    }
+  });
 
   function randString(limit, prefix) {
     let
@@ -65,45 +105,6 @@ jQuery(function ($) {
     password = prefix + password;
     return password;
   }
-
-  $('.submit').click(function () {
-    input_length = $("#length");
-
-    max = parseInt(input_length.attr('max'), 10);
-    min = parseInt(input_length.attr('min'), 10);
-    value = parseInt(input_length.val(), 10);
-    if (value >= min && value <= max) {
-      $('#alert').hide();
-      width = value * 10;
-      prefix = $("#prefix_chars").val();
-
-      let action = this.id;
-      let password = randString(value, prefix);
-      let passwordField = $('.hidden_password');
-
-      passwordField.val(password);
-      console.log("Generate -> " + value + " characters => " + "%c" + password, "color:#f0ad4e");
-
-      $('#field_password').show();
-      $('#button_copy').show();
-
-      passwordField.select();
-    } else {
-      $('#field_password').hide();
-      $('#button_copy').hide();
-      if (value >= max) {
-        $('#alert').addClass('alert').text('Character limit exceeded (' + value + ')').show();
-      } else {
-        $('#alert').addClass('alert').text('Character limit too low (' + value + ')').show();
-      }
-    }
-  });
-
-  $('.button.activate-fancy-bg').click(function () {
-    let target = $('body');
-    target.toggleClass('fancy-bg-active');
-    $(this).toggleClass('active');
-  });
 
   $('#button_copy').click(function () {
     copyFunction();

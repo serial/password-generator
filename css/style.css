@@ -136,16 +136,16 @@ span.fa-brands {
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-span.fa.green,
-span.fas.green,
-span.far.green,
-span.fal.green,
-span.fad.green,
-span.fab.green,
-span.fa-solid.green,
-span.fa-regular.green,
-span.fa-light.green,
-span.fa-brands.green {
+span.fa.electric-green,
+span.fas.electric-green,
+span.far.electric-green,
+span.fal.electric-green,
+span.fad.electric-green,
+span.fab.electric-green,
+span.fa-solid.electric-green,
+span.fa-regular.electric-green,
+span.fa-light.electric-green,
+span.fa-brands.electric-green {
   color: var(--color-electric-green);
 }
 span.fa.light,
@@ -160,41 +160,41 @@ span.fa-light.light,
 span.fa-brands.light {
   color: var(--color-light);
 }
-span.fa.link-green,
-span.fas.link-green,
-span.far.link-green,
-span.fal.link-green,
-span.fad.link-green,
-span.fab.link-green,
-span.fa-solid.link-green,
-span.fa-regular.link-green,
-span.fa-light.link-green,
-span.fa-brands.link-green {
+span.fa.link-electric-green,
+span.fas.link-electric-green,
+span.far.link-electric-green,
+span.fal.link-electric-green,
+span.fad.link-electric-green,
+span.fab.link-electric-green,
+span.fa-solid.link-electric-green,
+span.fa-regular.link-electric-green,
+span.fa-light.link-electric-green,
+span.fa-brands.link-electric-green {
   color: var(--color-electric-green);
 }
-span.fa.link-green:hover,
-span.fas.link-green:hover,
-span.far.link-green:hover,
-span.fal.link-green:hover,
-span.fad.link-green:hover,
-span.fab.link-green:hover,
-span.fa-solid.link-green:hover,
-span.fa-regular.link-green:hover,
-span.fa-light.link-green:hover,
-span.fa-brands.link-green:hover {
+span.fa.link-electric-green:hover,
+span.fas.link-electric-green:hover,
+span.far.link-electric-green:hover,
+span.fal.link-electric-green:hover,
+span.fad.link-electric-green:hover,
+span.fab.link-electric-green:hover,
+span.fa-solid.link-electric-green:hover,
+span.fa-regular.link-electric-green:hover,
+span.fa-light.link-electric-green:hover,
+span.fa-brands.link-electric-green:hover {
   cursor: pointer;
   color: var(--color-light);
 }
-span.fa.link-green.active,
-span.fas.link-green.active,
-span.far.link-green.active,
-span.fal.link-green.active,
-span.fad.link-green.active,
-span.fab.link-green.active,
-span.fa-solid.link-green.active,
-span.fa-regular.link-green.active,
-span.fa-light.link-green.active,
-span.fa-brands.link-green.active {
+span.fa.link-electric-green.active,
+span.fas.link-electric-green.active,
+span.far.link-electric-green.active,
+span.fal.link-electric-green.active,
+span.fad.link-electric-green.active,
+span.fab.link-electric-green.active,
+span.fa-solid.link-electric-green.active,
+span.fa-regular.link-electric-green.active,
+span.fa-light.link-electric-green.active,
+span.fa-brands.link-electric-green.active {
   color: var(--color-light);
 }
 span.fa.link-light,
@@ -439,6 +439,9 @@ input#field_password {
 }
 .spacer.h-50 {
   height: 50px;
+}
+.inline-block {
+  display: inline-block;
 }
 .uppercase {
   text-transform: uppercase;
@@ -1416,6 +1419,47 @@ input[type=checkbox]:checked + label:before {
   100% {
     clip-path: var(--clip-four);
   }
+}
+.tooltip {
+  position: relative;
+}
+.tooltip-text {
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  display: none;
+}
+.tooltip-text[data-show] {
+  display: block;
+}
+#arrow,
+#arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+#arrow {
+  visibility: hidden;
+}
+#arrow::before {
+  visibility: visible;
+  content: '';
+  transform: rotate(45deg);
+}
+.tooltip-text[data-popper-placement^='top'] > #arrow {
+  bottom: -4px;
+}
+.tooltip-text[data-popper-placement^='bottom'] > #arrow {
+  top: -4px;
+}
+.tooltip-text[data-popper-placement^='left'] > #arrow {
+  right: -4px;
+}
+.tooltip-text[data-popper-placement^='right'] > #arrow {
+  left: -4px;
 }
 /* -- RESPONSIVE -- */
 /*# sourceMappingURL=style.css.map */
